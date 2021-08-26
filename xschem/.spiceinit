@@ -3,3 +3,5 @@
 set ngbehavior=hsa
 * "nomodcheck" speeds up loading time
 set ng_nomodcheck
+* speeds up simulation speed
+set num_threads=8
