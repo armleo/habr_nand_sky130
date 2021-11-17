@@ -1,0 +1,42 @@
+* NGSPICE file created from my_nand.ext - technology: sky130A
+
+.subckt my_nand Y A B VGND VPWR VPB VNB
+X0 Y.t2 B.t0 a_150_47.t1 VNB.t1 sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=650000u l=150000u
+X1 VPWR.t1 B.t1 Y.t1 VPB.t1 sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1e+06u l=150000u
+X2 a_150_47.t0 A.t0 VGND.t0 VNB.t0 sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=650000u l=150000u
+X3 Y.t0 A.t1 VPWR.t0 VPB.t0 sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1e+06u l=150000u
+C0 Y VGND 0.26fF
+C1 B VGND 0.03fF
+C2 VPWR A 0.05fF
+C3 VPWR Y 0.46fF
+C4 VPWR B 0.05fF
+C5 VPWR VPB 0.02fF
+C6 Y A 0.10fF
+C7 VPWR VGND 0.02fF
+C8 B A 0.09fF
+C9 B Y 0.18fF
+C10 VGND A 0.13fF
+C11 Y VPB 0.00fF
+R0 B.n0 B.t1 227.542
+R1 B.n0 B.t0 155.243
+R2 B B.n0 11.82
+R3 a_150_47.t0 a_150_47.t1 49.846
+R4 Y Y.t2 64.227
+R5 Y Y.n0 39.211
+R6 Y.n0 Y.t1 26.595
+R7 Y.n0 Y.t0 26.595
+R8 VNB VNB.t0 5021.89
+R9 VNB.t0 VNB.t1 1407.69
+R10 VPWR.n0 VPWR.t1 78.403
+R11 VPWR.n0 VPWR.t0 68.733
+R12 VPWR VPWR.n0 18.974
+R13 VPB VPB.t0 561.37
+R14 VPB.t0 VPB.t1 444.859
+R15 A.n0 A.t1 228.285
+R16 A.n0 A.t0 155.986
+R17 A A.n0 11.82
+R18 VGND VGND.t0 90.911
+C12 Y VNB 0.11fF
+C13 VPWR VNB 0.46fF
+C14 VPB VNB 0.41fF
+.ends

@@ -1,0 +1,73 @@
+**.subckt my_nand_tb input0_net vdd1v8 output_net input1_net
+*.opin input0_net
+*.opin vdd1v8
+*.opin output_net
+*.opin input1_net
+V2 input0_net GND PULSE(0 1.65 5ns 1ns 1ns 4ns 10ns)
+V3 vdd1v8 GND 1.65
+V4 input1_net GND PULSE(0 1.65 15ns 1ns 1ns 9ns 20ns)
+C1 output_net GND 20ff m=1
+x1 vdd1v8 vdd1v8 input0_net output_net input1_net GND GND my_nand
+**** begin user architecture code
+
+.param mc_mm_switch=0
+.lib /opt/pdk_root/sky130A/libs.tech/ngspice/sky130.lib.spice ss
+.temp 125
+
+
+.control
+tran 0.1n 30n
+plot V(input0_net) V(input1_net) V(output_net)
+write
+.endc
+
+**** end user architecture code
+**.ends
+
+* expanding   symbol:  my_nand.sym # of pins=7
+* sym_path: /home/armleo/Desktop/habr_nand_sky130/xschem/my_nand.sym
+* sch_path: /home/armleo/Desktop/habr_nand_sky130/xschem/my_nand.sch
+.subckt my_nand  VPWR VPB A Y B VNB VGND
+X0 Y.t2 B.t0 a_150_47.t1 VNB.t1 sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=650000u l=150000u
+X1 VPWR.t1 B.t1 Y.t1 VPB.t1 sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1e+06u l=150000u
+X2 a_150_47.t0 A.t0 VGND.t0 VNB.t0 sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=0p ps=0u w=650000u l=150000u
+X3 Y.t0 A.t1 VPWR.t0 VPB.t0 sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1e+06u l=150000u
+C0 VPWR Y 0.46fF
+C1 VPWR B 0.05fF
+C2 VPWR VPB 0.02fF
+C3 Y A 0.10fF
+C4 VPWR VGND 0.02fF
+C5 B A 0.09fF
+C6 B Y 0.18fF
+C7 VGND A 0.13fF
+C8 Y VPB 0.00fF
+C9 Y VGND 0.26fF
+C10 B VGND 0.03fF
+C11 VPWR A 0.05fF
+R0 B.n0 B.t1 227.542
+R1 B.n0 B.t0 155.243
+R2 B B.n0 11.82
+R3 a_150_47.t0 a_150_47.t1 49.846
+R4 Y Y.t2 64.227
+R5 Y Y.n0 39.211
+R6 Y.n0 Y.t1 26.595
+R7 Y.n0 Y.t0 26.595
+R8 VNB VNB.t0 5021.89
+R9 VNB.t0 VNB.t1 1407.69
+R10 VPWR.n0 VPWR.t1 78.403
+R11 VPWR.n0 VPWR.t0 68.733
+R12 VPWR VPWR.n0 18.974
+R13 VPB VPB.t0 561.37
+R14 VPB.t0 VPB.t1 444.859
+R15 A.n0 A.t1 228.285
+R16 A.n0 A.t0 155.986
+R17 A A.n0 11.82
+R18 VGND VGND.t0 90.911
+C12 Y VNB 0.11fF
+C13 VPWR VNB 0.46fF
+C14 VPB VNB 0.41fF
+.ends
+
+.GLOBAL GND
+** flattened .save nodes
+.end

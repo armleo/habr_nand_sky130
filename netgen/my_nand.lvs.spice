@@ -1,0 +1,9 @@
+* NGSPICE file created from my_nand.ext - technology: sky130A
+
+.subckt my_nand Y A B VGND VPWR VPB VNB
+X0 Y B a_150_47# VNB sky130_fd_pr__nfet_01v8 ad=1.69e+11p pd=1.82e+06u as=1.755e+11p ps=1.84e+06u w=650000u l=150000u
+X1 a_150_47# A VGND VNB sky130_fd_pr__nfet_01v8 ad=0p pd=0u as=1.69e+11p ps=1.82e+06u w=650000u l=150000u
+X2 Y A VPWR VPB sky130_fd_pr__pfet_01v8 ad=2.7e+11p pd=2.54e+06u as=5.2e+11p ps=5.04e+06u w=1e+06u l=150000u
+X3 VPWR B Y VPB sky130_fd_pr__pfet_01v8 ad=0p pd=0u as=0p ps=0u w=1e+06u l=150000u
+.ends
+

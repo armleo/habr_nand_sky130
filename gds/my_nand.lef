@@ -1,0 +1,78 @@
+VERSION 5.7 ;
+  NOWIREEXTENSIONATPIN ON ;
+  DIVIDERCHAR "/" ;
+  BUSBITCHARS "[]" ;
+MACRO my_nand
+  CLASS BLOCK ;
+  FOREIGN my_nand ;
+  ORIGIN 0.000 0.000 ;
+  SIZE 1.770 BY 2.720 ;
+  PIN Y
+    ANTENNADIFFAREA 0.439000 ;
+    PORT
+      LAYER li1 ;
+        RECT 0.720 1.490 1.050 2.460 ;
+        RECT 0.800 0.860 0.970 1.490 ;
+        RECT 0.800 0.260 1.480 0.860 ;
+    END
+  END Y
+  PIN A
+    ANTENNAGATEAREA 0.247500 ;
+    PORT
+      LAYER li1 ;
+        RECT 0.300 1.035 0.630 1.275 ;
+    END
+  END A
+  PIN B
+    ANTENNAGATEAREA 0.247500 ;
+    PORT
+      LAYER li1 ;
+        RECT 1.160 1.035 1.490 1.275 ;
+    END
+  END B
+  PIN VGND
+    USE GROUND ;
+    PORT
+      LAYER li1 ;
+        RECT 0.300 0.085 0.630 0.865 ;
+        RECT 0.000 -0.085 1.770 0.085 ;
+      LAYER mcon ;
+        RECT 0.145 -0.085 0.315 0.085 ;
+        RECT 0.605 -0.085 0.775 0.085 ;
+        RECT 1.065 -0.085 1.235 0.085 ;
+      LAYER met1 ;
+        RECT 0.000 -0.240 1.770 0.240 ;
+    END
+  END VGND
+  PIN VPWR
+    USE POWER ;
+    PORT
+      LAYER li1 ;
+        RECT 0.000 2.635 1.770 2.805 ;
+        RECT 0.340 1.495 0.550 2.635 ;
+        RECT 1.220 1.495 1.430 2.635 ;
+      LAYER mcon ;
+        RECT 0.145 2.635 0.315 2.805 ;
+        RECT 0.605 2.635 0.775 2.805 ;
+        RECT 1.065 2.635 1.235 2.805 ;
+      LAYER met1 ;
+        RECT 0.000 2.480 1.770 2.960 ;
+    END
+  END VPWR
+  PIN VPB
+    PORT
+      LAYER nwell ;
+        RECT -0.190 1.305 1.960 2.910 ;
+    END
+  END VPB
+  PIN VNB
+    PORT
+      LAYER pwell ;
+        RECT 0.210 0.105 1.560 1.015 ;
+        RECT 0.210 0.085 0.315 0.105 ;
+        RECT 0.145 -0.085 0.315 0.085 ;
+    END
+  END VNB
+END my_nand
+END LIBRARY
+
